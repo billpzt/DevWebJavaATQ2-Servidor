@@ -31,12 +31,14 @@ public class Main {
             System.out.println("codigoRecebido: " + codigoRecebido); // Print the received code
             System.out.println("codigoCorreto: " + codigoCorreto); // Print the correct code
 
-            if (Objects.equals(codigoRecebido, codigoCorreto)) {
-                return "{\"ack\":\"1\"}";
-            } else {
-                return "{\"ack\":\"0\"}";
+            if (codigoRecebido.length() == 10) {
+                if (Objects.equals(codigoRecebido, codigoCorreto)) {
+                    return "{\"ack\":\"1\"}";
+                } else {
+                    return "{\"ack\":\"0\"}";
+                }
             }
-
+            return null;
         });
     }
 }
